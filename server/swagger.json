@@ -1,0 +1,179 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Girls.js @ Codewise",
+    "description": "If you have any further questions, please contact Rafal Rumanek",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/",
+  "tags": [
+    {
+      "name": "Posts",
+      "description": "Simple API for managing posts"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/posts": {
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "description": "Create a new post in system",
+        "parameters": [
+          {
+            "name": "post",
+            "in": "body",
+            "description": "Post that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Post_create"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New post is created",
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          },
+          "400": {
+            "description": "Required parameters not provided"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get all posts in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Posts"
+            }
+          }
+        }
+      }
+    },
+    "/posts/{postId}": {
+      "parameters": [
+        {
+          "name": "postId",
+          "in": "path",
+          "required": true,
+          "description": "ID of post that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get post with given ID",
+        "responses": {
+          "200": {
+            "description": "Post is found",
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete post with given ID",
+        "tags": [
+          "Posts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Post is deleted"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update post with given ID",
+        "tags": [
+          "Posts"
+        ],
+        "parameters": [
+          {
+            "name": "post",
+            "in": "body",
+            "description": "Post with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/Post_create"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post is updated",
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Post": {
+      "required": [
+        "author",
+        "text",
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "author": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+    "Post_create": {
+      "required": [
+        "author",
+        "text"
+      ],
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "Posts": {
+      "type": "array",
+      "$ref": "#/definitions/Post"
+    }
+  }
+}
