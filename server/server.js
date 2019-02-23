@@ -4,10 +4,12 @@ var express = require('express'),
     router = express.Router(),
     bodyParser = require('body-parser'),
     swaggerUi = require('swagger-ui-express'),
-    swaggerDocument = require('./swagger.json');
+    swaggerDocument = require('./swagger.json'),
+    cors = require('cors');
 
 
 var app = express();
+app.use(cors());
 
 const posts = [{
     author: "Filip Mamcarczyk",
@@ -47,7 +49,7 @@ app.use(bodyParser.json());
 
 //middleware for create
 var getPosts = function (req, res, next) {
-    res.send(posts);
+    res.send({posts: posts});
     next();
 };
 var createPost = function (req, res, next) {
