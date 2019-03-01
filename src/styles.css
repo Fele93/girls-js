@@ -22,6 +22,7 @@ header img {
 
 #new-post-form {
     padding: 40px 16px;
+    width: 80%;
 }
 
 .form-content {
@@ -40,8 +41,6 @@ header img {
 }
 
 .new-post-content {
-    left: 36px;
-    top: 24px;
     width: 100%;
     height: 80px;
     resize: none;
