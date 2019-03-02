@@ -1,49 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewpo§rt" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Girls JS</title>
 
     <link rel="stylesheet" type="text/css" href="src/styles.css">
 </head>
-
 <body>
     <header>
         <img src="src/img/logo.svg" alt="">
     </header>
 
-    <div id="posts">
+    <div class="content">
         <form id="new-post-form">
             <div class="form-content">
                 <textarea class="new-post-content" placeholder="Co słychać?"></textarea>
-                <button type="button" class="new-post-button">Send</button>
+                <button type="button" class="new-post-button">Dodaj posta</button>
             </div>
         </form>
 
-        <div class="post">
-            <img src="src/img/chinese-duck.png" alt="">
-            <div class="author">
-                Filip Mamcarczyk
-            </div>
-            <div class="text">
-                You that seek what life is in death,
-                Now find it air that once was breath.
-                New names unknown, old names gone:
-                Till time end bodies, but souls none.
-                You that seek what life is in death,
-                Now find it air that once was breath.
-                New names unknown, old names gone:
-                Till time end bodies, but souls none.
-            </div>
-            <div class="date">
-                24.02.2019, 12:34:56
+        <div id="posts">
+            <div class="post">
+                <img src="src/img/chinese-duck.png" alt="">
+                <div class="author">
+                    Mariano Italiano
+                </div>
+                <div class="text">
+                    Język Javascript został stworzony przez Brendana Eicha w 1995 roku podczas jego pracy dla Netscape Communications.
+                    Firma ta zajmowała się tworzeniem przeglądarki Netscape, która była wówczas najpopularniejszym narzędziem do przeglądania Internetu. 
+                </div>
+                <div class="date">
+                    24.02.2019, 12:34:56
+                </div>
             </div>
         </div>
-        <script src="src/helpers.js"></script>
-        <script src="app.js"></script>
+    </div>
+    
+    <script src="src/helpers.js"></script>
+    <script src="src/app.js"></script>
 </body>
-
 </html>

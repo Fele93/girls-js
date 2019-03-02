@@ -15,8 +15,7 @@ function addPostToHTML(post) {
 
     const date = document.createElement("div");
     date.className = "date";
-    const dateObject = new Date(post.date);
-    date.innerText = dateObject.toLocaleString();
+    date.innerText = post.date;
 
     container.appendChild(img);
     container.appendChild(author);

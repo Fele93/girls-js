@@ -1,5 +1,5 @@
 // API reference available at http://girlsjs.codewise.com:3000/api-docs
-const POSTS_ENDPOINT = "http://localhost:3000/api/posts";
+const POSTS_ENDPOINT = "http://girlsjs.codewise.com:3000/api/posts";
 
 const newPostBtn = document.querySelector('.new-post-button');
 const contentArea = document.querySelector('.new-post-content');
@@ -27,7 +27,7 @@ function sendNewPost() {
         .then(post => addPostToHTML(post))
         .then(() => contentArea.value = '')
         .catch(err => {
-            alert("Something went terribly wrong when trying to fetch posts!")
+            alert("Something went terribly wrong when trying to add a post!");
             console.log(err);
         });
 }
@@ -37,7 +37,7 @@ function fetchPosts() {
         .then(response => response.json())
         .then(data => data.posts.forEach(addPostToHTML))
         .catch(err => {
-            alert("Something went terribly wrong when trying to fetch posts!")
+            alert("Something went terribly wrong when trying to fetch posts!");
             console.log(err);
         });
 }

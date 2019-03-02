@@ -5,7 +5,11 @@
     font-family: Helvetica;
 }
 
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
     background-image: linear-gradient(to top, #ffc303, #ffb683, #ffc7d8, #ffe6ff, #ffffff);
 }
 
@@ -20,23 +24,39 @@ header img {
     height: 100%;
 }
 
+.post, #new-post-form {
+    max-width: 800px;
+    width: 100%;
+    padding: 24px 36px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0px 20px 61px -19px rgba(0,0,0,0.75);
+    position: relative;
+    margin-bottom: 32px;
+}
+
 #new-post-form {
-    padding: 40px 16px;
-    width: 80%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 1000px) {
+    #posts, #new-post-form  {
+        width: 80%;
+    }
+}
+
+#posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-content {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
     max-width: 800px;
-
-    padding: 24px 36px;
     margin: 0 auto;
-
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0px 20px 61px -19px rgba(0,0,0,0.75);
     border-radius: 15px;
 }
 
@@ -44,7 +64,7 @@ header img {
     width: 100%;
     height: 80px;
     resize: none;
-    border: 1px solid #eee;
+    border: 1px solid #e3e3e3;
     color: #777;
     border-radius: 8px;
     font-size: 16px;
@@ -54,8 +74,8 @@ header img {
 }
 
 .new-post-button {
-    background-color: #29af61;
-    border: 1px solid #29af61;
+    background-color: darkmagenta;
+    border: 1px solid darkmagenta;
     border-radius: 5px;
     padding: 10px;
     min-width: 80px;
@@ -63,37 +83,22 @@ header img {
     color: #fff;
     cursor: pointer;
     font-size: 12px;
+
+    transition: opacity 0.15s ease-in-out 0s;
 }
 
 .new-post-button:hover {
-    background-color: #239c56;
+    opacity: 0.80;
 }
 
-#posts {
+.content {
     height: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: auto;
-    padding: 40px 16px;
-}
-
-.post {
-    max-width: 800px;
-    width: 100%;
-    padding: 24px 36px 24px 130px;
-    margin-bottom: 40px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    box-shadow: 0px 20px 61px -19px rgba(0,0,0,0.75);
-    position: relative;
-}
-
-@media (min-width: 1000px) {
-    .post {
-        width: 80%;
-    }
+    padding: 32px 16px;
 }
 
 .author {
@@ -111,6 +116,10 @@ header img {
     margin-bottom: 12px;
     opacity: 0.7;
     font-style: italic;
+}
+
+.post {
+    padding-left: 130px;
 }
 
 .post img {
