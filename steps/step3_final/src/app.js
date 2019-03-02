@@ -21,11 +21,12 @@ function sendNewPost() {
             'Content-Type': 'application/json'
         }
     };
+    
+    contentArea.value = '';
 
     fetch(POSTS_ENDPOINT, reqObj)
         .then(response => response.json())
         .then(post => addPostToHTML(post))
-        .then(() => contentArea.value = '')
         .catch(err => {
             alert("Something went terribly wrong when trying to add a post!");
             console.log(err);
